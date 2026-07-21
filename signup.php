@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_bind_param($insert, 'ssss', $full_name, $email, $phone, $hashed_password);
 
             if (mysqli_stmt_execute($insert)) {
-                header('Location: login.php?registered=1');
+                header('Location: user/home.php');
                 exit;
             } else {
                 $error = 'Something went wrong. Please try again.';
