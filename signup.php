@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (mysqli_stmt_num_rows($stmt) > 0) {
             $error = 'An account with this email already exists.';
         } else {
-            $hashed_password = md5($password, PASSWORD_DEFAULT);
+            // signup.php — hashing
+            $hashed_password = md5($password);
 
             $insert = mysqli_prepare($conn, 'INSERT INTO tbl_users (full_name, email, phone, password, role) VALUES (?, ?, ?, ?, "user")');
             mysqli_stmt_bind_param($insert, 'ssss', $full_name, $email, $phone, $hashed_password);

@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = mysqli_stmt_get_result($stmt);
         $user = mysqli_fetch_assoc($result);
 
-        if ($user && md5($password, $user['password'])) {
+        // login.php — verifying
+        if ($user && md5($password) === $user['password']) {
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['full_name'] = $user['full_name'];
             $_SESSION['role'] = $user['role'];
