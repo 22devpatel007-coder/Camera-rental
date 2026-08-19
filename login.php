@@ -12,8 +12,8 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
 
     if ($email === '' || $password === '') {
         $error = 'Please enter both email and password.';
@@ -21,16 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = mysqli_prepare($conn, 'SELECT user_id, full_name, password, role FROM tbl_users WHERE email = ?');
         mysqli_stmt_bind_param($stmt, 's', $email);
         mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $user = mysqli_fetch_assoc($result);
+        mysqli_stmt_bind_result($stmt, $db_user_id, $db_full_name, $db_password, $db_role);
+        $user_found = mysqli_stmt_fetch($stmt);
+        mysqli_stmt_close($stmt);
 
         // login.php — verifying
-        if ($user && md5($password) === $user['password']) {
-            $_SESSION['user_id'] = $user['user_id'];
-            $_SESSION['full_name'] = $user['full_name'];
-            $_SESSION['role'] = $user['role'];
+        if ($user_found && md5($password) === $db_password) {
+            $_SESSION['user_id'] = $db_user_id;
+            $_SESSION['full_name'] = $db_full_name;
+            $_SESSION['role'] = $db_role;
 
-            header('Location: ' . ($user['role'] === 'admin' ? 'admin/dashboard.php' : 'user/home.php'));
+            header('Location: ' . ($db_role === 'admin' ? 'admin/dashboard.php' : 'user/home.php'));
             exit;
         } else {
             $error = 'Invalid email or password.';
