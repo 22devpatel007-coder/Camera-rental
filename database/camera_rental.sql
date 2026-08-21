@@ -113,8 +113,19 @@ CREATE TABLE tbl_contact (
 
 -- Default Admin (email: admin@gmail.com / password: admin123)
 INSERT INTO tbl_users (full_name, email, phone, password, role) VALUES
-('Admin', 'admin@gmail.com', '9999999999', '$2y$10$jr1s1Ual9zOo9kBjqCU0HuNAKcB1NcgRNxP2SKX322XCSdE4wwb7e', 'admin');
+('Admin', 'admin@gmail.com', '9999999999', MD5('admin123'), 'admin');
 
+-- adding phone number in booking table 
+ALTER TABLE tbl_bookings ADD COLUMN phone_number VARCHAR(15) NOT NULL AFTER user_id;
+
+--for payment tale 
+ALTER TABLE tbl_bookings ADD COLUMN payment_method ENUM('COD','Card','UPI') NOT NULL DEFAULT 'COD' AFTER booking_status;
+
+--for houre rent 
+ALTER TABLE tbl_cameras ADD COLUMN price_per_hour DECIMAL(10,2) NOT NULL DEFAULT 0 AFTER price_per_day;
+ALTER TABLE tbl_bookings ADD COLUMN rental_type ENUM('Hourly','Daily') NOT NULL DEFAULT 'Daily' AFTER return_date;
+ALTER TABLE tbl_bookings ADD COLUMN total_hours INT NOT NULL DEFAULT 0 AFTER total_days;
+ALTER TABLE tbl_booking_items ADD COLUMN price_per_hour DECIMAL(10,2) NOT NULL DEFAULT 0 AFTER price_per_day;
 -- Sample Brands
 INSERT INTO tbl_brands (brand_name) VALUES
 ('Canon'), ('Sony'), ('Nikon'), ('Fujifilm');

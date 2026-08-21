@@ -1,0 +1,352 @@
+/* ===== Admin Layout ===== */
+.admin-layout {
+    display: flex;
+    min-height: calc(100vh - 60px);
+}
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 30px;
+    border-bottom: 1px solid #242424;
+}
+
+.admin-topbar-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.admin-topbar-user {
+    color: #8A8A8A;
+    font-size: 14px;
+}
+
+/* ===== Sidebar ===== */
+.admin-sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    border-right: 1px solid #242424;
+    padding: 20px 0;
+}
+
+.admin-sidebar-logo {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 24px 20px;
+    color: #8A8A8A;
+}
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-nav a {
+    padding: 12px 24px;
+    color: #FFFFFF;
+    font-size: 14px;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.admin-nav a:hover {
+    background-color: #0D0D0D;
+}
+
+.admin-nav a.active {
+    border-left-color: #F44336;
+    background-color: #0D0D0D;
+    font-weight: 600;
+}
+
+.admin-nav a.admin-logout {
+    margin-top: 20px;
+    color: #FF6B6B;
+}
+
+/* ===== Content Area ===== */
+.admin-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.admin-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.admin-page-header .btn-primary {
+    width: auto;
+    padding: 12px 24px;
+}
+
+/* ===== Stats Grid (Dashboard) ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.stat-card {
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.stat-label {
+    color: #8A8A8A;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* ===== Admin Table ===== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #242424;
+}
+
+.admin-table th {
+    color: #8A8A8A;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #151515;
+}
+
+.admin-actions a {
+    margin-right: 12px;
+    font-size: 13px;
+    color: #F44336;
+}
+
+.admin-actions .delete-link {
+    color: #FF6B6B;
+}
+
+/* ===== Status Badges ===== */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-available {
+    background-color: rgba(34, 197, 94, 0.12);
+    color: #4ADE80;
+}
+
+.status-booked {
+    background-color: rgba(244, 67, 54, 0.12);
+    color: #F44336;
+}
+
+.status-maintenance {
+    background-color: rgba(234, 179, 8, 0.12);
+    color: #FACC15;
+}
+
+.status-unavailable {
+    background-color: rgba(138, 138, 138, 0.12);
+    color: #8A8A8A;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .admin-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+    }
+
+    .admin-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .admin-nav a {
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+
+    .admin-nav a.active {
+        border-left-color: transparent;
+        border-bottom-color: #F44336;
+    }
+}
+
+/* ===== Admin Form ===== */
+.admin-form {
+    max-width: 520px;
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.admin-form textarea {
+    width: 100%;
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 8px;
+    padding: 13px 16px;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.admin-form textarea:focus {
+    outline: none;
+    border-color: #F44336;
+}
+
+.admin-form select {
+    width: 100%;
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 8px;
+    padding: 13px 16px;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.admin-form select:focus {
+    outline: none;
+    border-color: #F44336;
+}
+
+.admin-form input[type="file"] {
+    width: 100%;
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: #8A8A8A;
+    font-size: 14px;
+}
+
+.admin-form .btn-primary {
+    width: auto;
+    padding: 13px 30px;
+}
+
+.current-image {
+    margin-bottom: 15px;
+}
+
+.current-image img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #242424;
+}
+.status-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-form select {
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 6px;
+    padding: 6px 10px;
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+.btn-small {
+    padding: 6px 14px;
+    font-size: 13px;
+    width: auto;
+}
+/* ===== Contact Messages ===== */
+.contact-stats {
+    background-color: #0D0D0D;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.contact-stats p {
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.contact-stats strong {
+    color: #F44336;
+}
+
+.message-cell {
+    color: #8A8A8A;
+    max-width: 250px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.no-data {
+    text-align: center;
+    color: #8A8A8A;
+    padding: 40px 20px;
+    font-size: 14px;
+}
+.admin-table thead th,
+.admin-table tbody td {
+    padding: 12px 15px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.message-cell {
+    white-space: normal;
+    max-width: 250px;
+}
+
+.admin-table tbody tr {
+    border-bottom: 1px solid #242424;
+}

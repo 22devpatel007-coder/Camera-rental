@@ -169,6 +169,7 @@ Stores booking information.
 Columns
 booking_id
 user_id
+phone_number
 booking_number
 pickup_date
 return_date

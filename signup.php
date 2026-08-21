@@ -12,11 +12,11 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $full_name = trim($_POST['full_name']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['phone']);
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $full_name = isset($_POST['full_name']) ? trim($_POST['full_name']) : '';
+    $email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $confirm_password = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
 
     if ($full_name === '' || $email === '' || $phone === '' || $password === '') {
         $error = 'Please fill in all fields.';
@@ -31,8 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, 's', $email);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
+        $email_exists = mysqli_stmt_num_rows($stmt) > 0;
+        mysqli_stmt_close($stmt);
 
-        if (mysqli_stmt_num_rows($stmt) > 0) {
+        if ($email_exists) {
             $error = 'An account with this email already exists.';
         } else {
             // signup.php — hashing
@@ -42,10 +44,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mysqli_stmt_bind_param($insert, 'ssss', $full_name, $email, $phone, $hashed_password);
 
             if (mysqli_stmt_execute($insert)) {
-                header('Location: login.php?registered=1');
+                $user_id = mysqli_insert_id($conn);
+            
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['role'] = 'user';
+                $_SESSION['full_name'] = $full_name;
+            
+                mysqli_stmt_close($insert);
+                header('Location: user/home.php');
                 exit;
             } else {
                 $error = 'Something went wrong. Please try again.';
+                mysqli_stmt_close($insert);
             }
         }
     }
