@@ -1,12 +1,12 @@
-# 📷 CameraHub — Online Camera Rental System
+# CameraHub — Online Camera Rental System
 
 A full-stack camera rental web application built with **PHP, MySQL (MySQLi), and vanilla HTML/CSS/JS** — no frameworks, no Composer, no external libraries. Built as a college project targeting PHP 5.x / WAMP 5.x compatibility.
 
-🔗 **Live Demo:** [https://camerahub.free.je/](https://camerahub.free.je/)
+**Live Demo:** [https://camerahub.free.je/](https://camerahub.free.je/)
 
 ---
 
-## ✨ Features
+## Features
 
 ### User Side
 - Browse and search available cameras by brand/category
@@ -24,19 +24,31 @@ A full-stack camera rental web application built with **PHP, MySQL (MySQLi), and
 
 ---
 
-## 🖼️ Screenshots
+## Screenshots
 
-| Homepage | Login |
-|---|---|
-| ![Homepage](assets/images/screenshots/homepage.png) | ![Login](assets/images/screenshots/login.png) |
+**Homepage**
+![Homepage]
 
-| Browse Cameras | Admin Dashboard |
-|---|---|
-| ![Browse Cameras](assets/images/screenshots/browse-cameras.png) | ![Admin Dashboard](assets/images/screenshots/admin-dashboard.png) |
+(assets/images/screenshots/homepage.png)
+
+**Login**
+![Login]
+
+(assets/images/screenshots/login.png)
+
+**Browse Cameras**
+![Browse Cameras]
+
+(assets/images/screenshots/browse-cameras.png)
+
+**Admin Dashboard**
+![Admin Dashboard]
+
+(assets/images/screenshots/admin-dashboard.png)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** PHP (5.x compatible), MySQLi (procedural)
 - **Database:** MySQL
@@ -47,7 +59,7 @@ No frameworks, no Composer, no jQuery/Bootstrap/React — built entirely with co
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 camera-rental-system/
@@ -64,7 +76,7 @@ camera-rental-system/
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 1. Clone/download this repository into your WAMP `www` directory.
 2. Import `database/camera_rental.sql` into MySQL (via phpMyAdmin or CLI).
@@ -78,7 +90,7 @@ camera-rental-system/
 
 ---
 
-## 🔒 Security Notes
+## Security Notes
 
 - All queries use prepared statements (MySQLi).
 - Output escaped with `htmlspecialchars()`.
@@ -86,6 +98,6 @@ camera-rental-system/
 
 ---
 
-## 📄 License
+## License
 
 This project was built for educational purposes as a college submission.
