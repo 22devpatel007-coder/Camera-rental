@@ -27,24 +27,16 @@ A full-stack camera rental web application built with **PHP, MySQL (MySQLi), and
 ## Screenshots
 
 **Homepage**
-![Homepage]
-
-(assets/images/screenshots/homepage.png)
+![Homepage](assets/images/screenshots/homepage.png)
 
 **Login**
-![Login]
-
-(assets/images/screenshots/login.png)
+![Login](assets/images/screenshots/login.png)
 
 **Browse Cameras**
-![Browse Cameras]
-
-(assets/images/screenshots/browse-cameras.png)
+![Browse Cameras](assets/images/screenshots/browse-cameras.PNG)
 
 **Admin Dashboard**
-![Admin Dashboard]
-
-(assets/images/screenshots/admin-dashboard.png)
+![Admin Dashboard](assets/images/screenshots/admin-dashboard.PNG)
 
 ---
 
