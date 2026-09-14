@@ -1,3 +1,4 @@
+<!-- index -->
 <?php
 require_once 'includes/session.php';
 require_once 'includes/database.php';
@@ -6,14 +7,14 @@ require_once 'includes/config.php';
 $page_title = 'Home';
 require_once 'includes/header.php';
 require_once 'includes/navbar.php';
-
-
 ?>
+
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/animations.css">
 
 <!-- ===== Hero / Featured Showcase Section (static) ===== -->
 <section class="showcase">
     <div class="container showcase-inner">
-        <div class="showcase-text">
+        <div class="showcase-text hero-load-text">
             <h1 class="showcase-title">Canon EOS<br>5D Mark IV</h1>
             <p class="showcase-desc">
                 A full-frame DSLR built for serious photography and filmmaking.
@@ -21,7 +22,7 @@ require_once 'includes/navbar.php';
             </p>
             <a href="<?php echo BASE_URL; ?>user/browse-cameras.php" class="btn-primary showcase-btn">Browse Cameras</a>
         </div>
-        <div class="showcase-image">
+        <div class="showcase-image hero-load-image">
             <img src="<?php echo BASE_URL; ?>assets/images/hero/hero-1.jpg" alt="Canon EOS 5D Mark IV">
         </div>
     </div>
@@ -29,7 +30,7 @@ require_once 'includes/navbar.php';
 
 <!-- ===== Lens / Secondary Showcase Section (static) ===== -->
 <section class="section lens-showcase">
-    <div class="container lens-showcase-inner">
+    <div class="container lens-showcase-inner reveal-stagger">
         <div class="lens-image">
             <img src="<?php echo BASE_URL; ?>assets/images/hero/hero-2.jpg" alt="Featured lens">
         </div>
@@ -44,36 +45,10 @@ require_once 'includes/navbar.php';
     </div>
 </section>
 
-<!-- ===== Categories Section (static, large tiles) ===== -->
-<!-- <section class="section categories-section">
-    <div class="container">
-        <h2 class="section-title">Browse by Category</h2>
-        <p class="section-subtitle">Find the right gear for your next shoot</p>
-
-        <div class="category-tiles">
-            <a href="<?php echo BASE_URL; ?>user/browse-cameras.php?category=dslr" class="category-tile" style="background-image: url('<?php echo BASE_URL; ?>assets/images/icons/dslr.jpg');">
-                <span class="category-tile-label">DSLR</span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>user/browse-cameras.php?category=mirrorless" class="category-tile" style="background-image: url('<?php echo BASE_URL; ?>assets/images/icons/mirrorless.jpg');">
-                <span class="category-tile-label">Mirrorless</span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>user/browse-cameras.php?category=action" class="category-tile" style="background-image: url('<?php echo BASE_URL; ?>assets/images/icons/action-camera.jpg');">
-                <span class="category-tile-label">Action Camera</span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>user/browse-cameras.php?category=drone" class="category-tile" style="background-image: url('<?php echo BASE_URL; ?>assets/images/icons/drone.jpg');">
-                <span class="category-tile-label">Drone</span>
-            </a>
-            <a href="<?php echo BASE_URL; ?>user/browse-cameras.php?category=lens" class="category-tile" style="background-image: url('<?php echo BASE_URL; ?>assets/images/icons/lens.jpg');">
-                <span class="category-tile-label">Lens</span>
-            </a>
-        </div>
-    </div>
-</section> -->
-
 <!-- ===== About Preview Section ===== -->
 <section class="section about-preview">
     <div class="container about-preview-inner">
-        <div class="about-preview-text">
+        <div class="about-preview-text reveal-stagger">
             <h2 class="section-title">About Us</h2>
             <p>
                 We make professional photography and videography gear accessible to everyone.
@@ -87,11 +62,13 @@ require_once 'includes/navbar.php';
 
 <!-- ===== Contact Preview Section ===== -->
 <section class="section contact-preview">
-    <div class="container contact-preview-inner">
+    <div class="container contact-preview-inner reveal-stagger">
         <h2 class="section-title">Get In Touch</h2>
         <p class="section-subtitle">Have a question about a booking or a camera? We're happy to help.</p>
         <a href="<?php echo BASE_URL; ?>user/contact.php" class="btn-primary contact-btn">Contact Us</a>
     </div>
 </section>
+
+<script src="<?php echo BASE_URL; ?>assets/js/animations.js"></script>
 
 <?php require_once 'includes/footer.php'; ?>
